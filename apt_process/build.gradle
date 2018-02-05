@@ -1,0 +1,25 @@
+apply plugin: 'java-library'
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //test resolve com.android.builder.dexing.DexArchiveBuilderException: com.android.builder.dexing.DexArchiveBuilderException: Failed to process
+    //报错 Error:(10, 0) Could not find method annotationProcessor() for arguments [com.google.auto.service:auto-service:1.0-rc4] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
+    //test fail
+//    com 'com.google.auto.service:auto-service:1.0-rc4'
+//    annotationProcessor  "com.google.auto.service:auto-service:1.0-rc4"
+
+
+    implementation 'com.google.auto.service:auto-service:1.0-rc4'
+    implementation 'com.squareup:javapoet:1.10.0'
+    //    compile files ('C:/Program Files/Java/jdk1.8.0_144/jre/lib/rt.jar')
+    implementation project(':apt_lib')
+
+//    implementation 'com.google.guava:guava:23.5-android'
+}
+
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

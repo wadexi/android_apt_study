@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="admin.example.com.androidstudy.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/ab_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fitsSystemWindows="true">
+
+
+        <!--//属性解析：-->
+        <!--// app:theme：指定Toolbar的样式，包括ActionbarToggle和popupMenu的指示图标颜色-->
+        <!--// app:popupTheme：指定popupMenu溢出后的样式-->
+        <!--// app:title: 指定Toolbar中主Title的内容-->
+        <!--// app:layout_scrollFlags的意思是：-->
+
+        <!--设置的layout_scrollFlags有如下几种选项：-->
+        <!--scroll: 所有想滚动出屏幕的view都需要设置这个flag- 没有设置这个flag的view将被固定在屏幕顶部。-->
+        <!--enterAlways: 这个flag让任意向下的滚动都会导致该view变为可见，启用快速“返回模式”。-->
+        <!--enterAlwaysCollapsed: 当你的视图已经设置minHeight属性又使用此标志时，你的视图只能以最小高度进入，只有当滚动视图到达顶部时才扩大到完整高度。-->
+        <!--exitUntilCollapsed: 当视图会在滚动时，它一直滚动到设置的minHeight时完全隐藏。-->
+
+        <!--// 需要注意的是，后面两种模式基本只有在CollapsingToolbarLayout才有用，-->
+        <!--// 而前面两种模式基本是需要一起使用的，也就是说，这些flag的使用场景，基本已经固定了。-->
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/my_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="1"
+                app:layout_scrollFlags="scroll|enterAlways"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="1000dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@android:color/white"
+        android:fillViewport="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="1000dp"
+            android:gravity="center"
+            android:text="1123123"/>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+</android.support.constraint.ConstraintLayout>
